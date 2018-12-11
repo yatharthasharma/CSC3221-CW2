@@ -1,29 +1,51 @@
 #include "Piece.h"
 
 
-Piece::Piece(double x, double y)
+Piece::Piece()
 {
-	xcoordinate = x;
-	ycoordinate = y;
+}
+
+Piece::Piece(double xcoordinate, double ycoordinate)
+{
+	x = xcoordinate;
+	y = ycoordinate;
+}
+
+Piece::Piece(const Piece &piece)
+{
+	setX(piece.x);
+	setY(piece.y);
 }
 
 Piece::~Piece()
 {
+	x = 1;
+	y = 1;
 }
 
-void Piece::move(double x, double y)
+void Piece::move(double xcoordinate, double ycoordinate)
 {
-	xcoordinate += x;
-	ycoordinate += y;
+	x += xcoordinate;
+	y += ycoordinate;
 
 }
 
-double Piece::getX()
+const double Piece::getX()
 {
-	return xcoordinate;
+	return x;
 }
 
-double Piece::getY()
+const double Piece::getY()
 {
-	return ycoordinate;
+	return y;
+}
+
+void Piece::setX(double xcoordinate)
+{
+	x = xcoordinate;
+}
+
+void Piece::setY(double ycoordinate)
+{
+	y = ycoordinate;
 }

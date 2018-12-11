@@ -4,11 +4,15 @@
 class Piece
 {
 public:
-	Piece(double x, double y);
+	Piece();
+	Piece(double xcoordinate, double ycoordinate);
+	Piece(const Piece& piece);
 	virtual ~Piece() = 0;
 	void move(double x, double y);
-	double getX();
-	double getY();
+	const double getX();
+	const double getY();
+	void setX(double xcoordinate);
+	void setY(double ycoordinate);
 private:
-	double xcoordinate, ycoordinate;
+	double x, y;
 };

@@ -11,7 +11,7 @@ Piece::Piece(double xcoordinate, double ycoordinate)
 	y = ycoordinate;
 }
 
-Piece::Piece(const Piece &piece)
+Piece::Piece(Piece &piece)
 {
 	setX(piece.x);
 	setY(piece.y);
@@ -30,12 +30,12 @@ void Piece::move(double xcoordinate, double ycoordinate)
 
 }
 
-const double Piece::getX()
+double Piece::getX()
 {
 	return x;
 }
 
-const double Piece::getY()
+double Piece::getY()
 {
 	return y;
 }

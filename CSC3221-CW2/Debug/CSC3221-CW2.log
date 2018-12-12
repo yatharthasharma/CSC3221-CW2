@@ -1,2 +1,8 @@
-﻿  Piece.cpp
-LINK : fatal error LNK1561: entry point must be defined
+﻿  Bishop.cpp
+  Collision.cpp
+  Game.cpp
+c:\users\yatha\source\repos\csc3221-cw2\csc3221-cw2\game.cpp(3): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Queen.cpp
+  Rook.cpp
+  Generating Code...
+  CSC3221-CW2.vcxproj -> C:\Users\yatha\source\repos\CSC3221-CW2\Debug\CSC3221-CW2.exe

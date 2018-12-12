@@ -3,6 +3,7 @@
 class Rook : public Piece
 {
 public:
+	Rook();
 	Rook(double x, double y);					// (x,y) are the coordinates for the top left corner of the square
 	~Rook();
 	const double getSide();

@@ -3,6 +3,7 @@
 class Queen : public Piece
 {
 public:
+	Queen();
 	Queen(double x, double y);
 	~Queen();
 	double getRadius();

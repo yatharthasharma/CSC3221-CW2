@@ -33,14 +33,33 @@ static bool squareOverlap(Rook& r1, Rook& r2)
 	double r1BottomRightY = r1.bottomRightCornerY();
 	double r2BottomRightX = r2.bottomRightCornerX();
 	double r2BottomRightY = r2.bottomRightCornerY();
-	if (r1.getX() >= r2BottomRightX || r2.getX() >= r1BottomRightX)
-		return false;
-	if (r1.getY() <= r2BottomRightY || r2.getY() <= r1BottomRightY)
+	if ((r1.getX() >= r2BottomRightX || r2.getX() >= r1BottomRightX) || (r1.getY() <= r2BottomRightY || r2.getY() <= r1BottomRightY))
 		return false;
 	return true;
 }
+// used both the below functions to calculate if circle/square overlap
+// used this as a reference - https://stackoverflow.com/questions/401847/circle-rectangle-collision-detection-intersection
+// limits value to minimum or maximum val from the given two coordinates if out of bound
+static double restrictVal(double value, double c1IsMin, double c2IsMax)
+{
+	if (value < c1IsMin)
+		value = c1IsMin;
+	if (value > c2IsMax)
+		value = c2IsMax;
+	return value;
+}
 static bool circleSquareOverlap(Rook& r, Queen& q)
 {
-	
+	// Calculate square's extreme coordinates (x,y)
+	double rRightX = r.bottomRightCornerX();
+	double rBottomY = r.bottomRightCornerY();
+	// find square's closest point to the circle by using its extreme coordinate values to compare with circle's centre's coordinates
+	double closestX = restrictVal(q.getX(), r.getX(), rRightX);
+	double closestY = restrictVal(q.getY(), r.getY(), rBottomY);
+	// find distance from this closest point to circle's centre
+	double distanceOfXs = q.getX() - closestX;
+	double distanceOfYs = q.getY() - closestY;
+	// return if this point is closer from the circle centre than radius centre - cancelling out calculating sqrt part of distance
+	// calculation since its at both sides
+	return (distanceOfXs*distanceOfXs + distanceOfYs * distanceOfYs) < q.getRadius()*q.getRadius();
 }
-

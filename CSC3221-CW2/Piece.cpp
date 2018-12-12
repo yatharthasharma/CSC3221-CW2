@@ -19,8 +19,6 @@ Piece::Piece(Piece &piece)
 
 Piece::~Piece()
 {
-	x = 1;
-	y = 1;
 }
 
 void Piece::move(double xcoordinate, double ycoordinate)

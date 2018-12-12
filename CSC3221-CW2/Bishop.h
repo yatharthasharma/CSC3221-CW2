@@ -3,6 +3,7 @@
 class Bishop : public Piece
 {
 public:
+	Bishop();
 	Bishop(double x, double y);
 	~Bishop();
 	double getRadius();
